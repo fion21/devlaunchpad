@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title><%= content_for(:title) || "DevLaunchpad" %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Google Fonts for Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <!-- Stylesheets and JS -->
+  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+  <!-- Intro Section with Image and Hero Banner -->
+  <div class="intro-section">
+    
+    <!-- Intro Image Section -->
+    <div class="intro-image">
+      <img src="<%= asset_path('phone.png') %>" alt="Mobile Showcase">
+    </div>
+
+    <!-- Intro Section with Hero Banner -->
+    <div class="hero-banner">
+      <h2>A non-profit UK initiative offering 6-month voluntary placements to early-career software developers.</h2>
+      <h2>Companies pay a small fee to post opportunities and access talent. Developers gain real-world experience, mentorship and guaranteed reference letters. <br>Applications are capped at fifty applicants per role.</h2>
+    </div>
+
+
+  <!-- Companies Offering Experience -->
+  <section>
+    <h2>📢 Companies Offering Experience</h2>
+    <ul>
+      <% @companies.each do |company| %>
+        <li>
+          <strong><%= company.name %></strong><br>
+          <%= company.description %><br>
+          <em>Email: <%= company.email %></em>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <!-- Volunteer Candidates Seeking Experience -->
+  <section>
+    <h2>👩‍💻 Volunteer Candidates Seeking Experience</h2>
+    <ul>
+      <% @candidates.each do |candidate| %>
+        <li>
+          <strong><%= candidate.name %></strong><br>
+          <%= candidate.experience %><br>
+          <em>Email: <%= candidate.email %></em>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <!-- Apply for Volunteer Experience Form -->
+  <section id="candidate-form">
+  <h2>🎯 Apply for Volunteer Experience</h2>
+  <%= form_with url: candidates_path, method: :post, local: true do |f| %>
+    <div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, required: true %>
+    </div>
+    
+    <div>
+      <%= f.label :linkedin, "LinkedIn Profile (URL)" %><br>
+      <%= f.url_field :linkedin, required: true, placeholder: "Enter LinkedIn URL" %>
+    </div>
+
+    <div>
+      <%= f.label :github, "GitHub Profile (URL)" %><br>
+      <%= f.url_field :github, required: true, placeholder: "Enter GitHub URL" %>
+    </div>
+
+    <div>
+      <%= f.label :website, "Website (URL)" %><br>
+      <%= f.url_field :website, required: true, placeholder: "Enter Website URL" %>
+    </div>
+
+    <%= f.submit "Submit Application" %>
+  <% end %>
+</section>
+
+  <!-- Employer Options -->
+  <section>
+    <h2>💼 Employer Options</h2>
+    <p>Select a service:</p>
+    <form action="#" method="post">
+      <button type="submit">£199 – Post 1 Job Listing</button>
+    </form>
+    <form action="#" method="post">
+      <button type="submit">£399 – 1 Month Access to All Candidates</button>
+    </form>
+  </section>
+</body>
+</html>

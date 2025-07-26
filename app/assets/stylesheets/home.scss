@@ -1,0 +1,182 @@
+// Variables
+$red: #c00;
+$black: #111;
+$turquoise: #00cfc1;
+$flesh: #f6efe9; // light skin-tone background
+$text: #222;
+$highlight: #f44336;
+$card-bg: #ffffff;
+$gray-border: #e0e0e0;
+$grey-green: #8F9B97; // This is a muted grey-green shade
+
+
+// Import Google Fonts: Roboto
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+// Base Styles
+body {
+  font-family: 'Roboto', sans-serif;  // Set Roboto as the default font
+  background-color:    $grey-green !important;  // Set grey-green background for the whole page
+  color: $text;                      // Default text color
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+}
+
+h1, h2, h3 {
+  color: $grey-green; // Header text color
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+// Hero Banner Section
+.hero-banner {
+  background-color: $gray-border !important;    /* Light gray background for the hero banner */
+  color: white;                      /* White text for the banner */
+  padding: 3rem;                     /* Extra padding to make it more vertical */
+  border-radius: 15px;               /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Light shadow to lift the banner */
+  border-left: 4px solid $turquoise; /* Turquoise border on the left */
+  margin-bottom: 2.5rem;             /* Space below the hero banner */
+  display: flex;                     /* Use flexbox for layout */
+  flex-direction: column;            /* Stack the content vertically */
+  justify-content: center;           /* Vertically center the content */
+  align-items: center;               /* Horizontally center the content */
+  text-align: center;                /* Center text inside the container */
+  max-width: 80%;                    /* Full width */
+  width: 100%;                       /* Ensure the banner covers full width */
+}
+
+.hero-banner .hero-text h1,
+.hero-banner .hero-text h2,
+.hero-banner .hero-text h3 {
+  color: white !important;           /* Ensure header text color is white */
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the header text */
+}
+
+.hero-banner .hero-text h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero-banner .hero-text h2 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.hero-banner .hero-text h3 {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 80%;                    /* Limit the width of h3 text */
+  margin-top: 1rem;
+  font-weight: 300;                  /* Lighter weight for h3 text */
+}
+
+// Hero text content
+.hero-text {
+  max-width: 80%;                    /* Prevent the text from stretching too wide */
+}
+
+// Centering Text Class (for use on h1, h2, h3)
+.center-text {
+  text-align: center;                /* Center text horizontally */
+}
+
+// White Shadow Effect
+.white-shadow {
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Subtle white shadow effect */
+}
+
+// Intro Section Image
+.intro-image img {
+  max-width: 100%;                   /* Ensure the image takes up full width */
+  height: auto;                      /* Maintain aspect ratio */
+  border-radius: 10px;               /* Optional: Adds rounded corners to the images */
+  margin-bottom: 2rem;               /* Adds space between the image and the text */
+}
+
+// Sections
+section {
+  background: $card-bg;              /* White background for sections */
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid $gray-border;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+// Alternate Section Styling with Flesh Tone for Variety
+section.alt-section {
+  background: $flesh;                /* Flesh color for alternate sections */
+  color: $text;                      /* Ensures text remains readable */
+  border: 1px solid $gray-border;
+}
+
+// Lists
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 4px solid $turquoise;
+  border-radius: 6px;
+  border: 1px solid $gray-border;
+}
+
+// Forms
+form {
+  margin-top: 1.5rem;
+}
+
+input,
+textarea,
+select {
+  width: 85%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid $gray-border;
+  border-radius: 6px;
+  background: #fff;
+  color: $text;
+  font-size: 1rem;
+      
+}
+
+button,
+input[type="submit"] {
+  background-color: $red;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+    width: 80%;
+
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: $highlight;
+}
+
+a {
+  color: $turquoise;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
